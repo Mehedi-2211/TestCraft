@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Test Results
+test-results/
+playwright-report/
+allure-report/
+allure-results/
+reports/
+results/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build Outputs
+dist/
+build/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary Files
+*.tmp
+.cache/
+
+# Playwright
+.playwright/
+
+# Test Artifacts
+screenshots/
+videos/
+traces/

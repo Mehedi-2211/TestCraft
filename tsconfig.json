@@ -1,0 +1,50 @@
+{
+  /**
+   * TypeScript Configuration
+   *
+   * NOTE: Before running this project, install dependencies:
+   * npm install
+   *
+   * If you see errors about missing type definitions:
+   * 1. Run: npm install
+   * 2. If still failing, run: npm install --save-dev @types/node
+   * 3. Restart your IDE/TypeScript server
+   *
+   * Playwright types should be available after installing @playwright/test
+   */
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "lib": ["ES2022", "DOM"],
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["@playwright/test", "node"]
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "scripts/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "results",
+    "test-results",
+    "playwright-report"
+  ]
+}

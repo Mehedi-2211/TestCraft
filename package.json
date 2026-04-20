@@ -1,0 +1,57 @@
+{
+  "name": "tuliptech-qa-architecture",
+  "version": "1.0.0",
+  "description": "Enterprise-grade QA automation framework for TulipTech projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:sanity": "npx playwright test --grep @sanity",
+    "test:uat": "npx playwright test --grep @uat",
+    "test:functional": "npx playwright test --grep @functional",
+    "test:ui": "npx playwright test --grep @ui",
+    "test:integration": "npx playwright test --grep @integration",
+    "test:production": "npx playwright test --grep @production",
+    "test:cross-browser": "npx playwright test --grep @cross-browser",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:install": "npx playwright install --with-deps",
+    "test:report": "npx playwright show-report",
+    "testrail:import": "node scripts/testrail/import.js",
+    "report:allure": "allure generate reports/allure-results --clean -o reports/allure-report",
+    "report:open": "allure open reports/allure-report",
+    "validate": "node scripts/validation/validate.js",
+    "clean": "rimraf results test-results playwright-report"
+  },
+  "keywords": [
+    "qa",
+    "automation",
+    "testing",
+    "playwright",
+    "typescript",
+    "tuliptech"
+  ],
+  "author": "TulipTech QA Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "allure-playwright": "^3.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.0.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.0",
+    "pdf-lib": "^1.17.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
