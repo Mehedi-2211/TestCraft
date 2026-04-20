@@ -1,4 +1,4 @@
-# 🧪 TulipTech QA Architecture
+# TulipTech QA Team Testing Architecture
 
 Enterprise-grade test automation framework for TulipTech projects.
 
