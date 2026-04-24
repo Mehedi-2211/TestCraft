@@ -1,5 +1,38 @@
 # CI/CD Integration Guide
 
+## ⚠️ IMPORTANT - CI/CD Status
+
+**CI/CD is currently DISABLED for this template repository.**
+
+### Why Disabled?
+- This is a reference/template repository
+- CI/CD workflows require environment-specific configuration
+- Users who fork this repo should enable CI/CD based on their needs
+
+### How to Enable CI/CD
+
+When you fork this repository for your project:
+
+1. **Generate package-lock.json:**
+   ```bash
+   npm install
+   git add package-lock.json
+   git commit -m "Add package-lock.json for CI/CD"
+   ```
+
+2. **Create workflow files** (copy from below templates):
+   - `.github/workflows/smoke-tests.yml`
+   - `.github/workflows/production-tests.yml`
+
+3. **Configure GitHub Secrets:**
+   - `PRODUCTION_URL` - Your production application URL
+   - `SLACK_WEBHOOK_URL` - (Optional) Slack notifications
+   - `TESTRAIL_HOST`, `TESTRAIL_USERNAME`, `TESTRAIL_API_KEY` - (Optional)
+
+4. **Push to enable workflows**
+
+---
+
 ## Overview
 
 This guide explains how to integrate the TulipTech QA Architecture into your CI/CD pipeline.
@@ -343,5 +376,92 @@ Configure alerts for:
 
 ---
 
+## Quick Start: Enable CI/CD in Your Fork
+
+### Step 1: Create Workflow File
+
+Create `.github/workflows/smoke-tests.yml`:
+
+```yaml
+name: Smoke Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  smoke-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run smoke tests
+        run: npx playwright test --grep @smoke
+        env:
+          CI: true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-results
+          path: test-results/
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-html-report
+          path: playwright-report/
+```
+
+### Step 2: Configure Secrets
+
+Go to: **Repository Settings → Secrets and variables → Actions**
+
+Add required secrets:
+- `BASE_URL` - Your application URL (e.g., `https://staging.example.com`)
+- `TEST_USERNAME` - Test account username
+- `TEST_PASSWORD` - Test account password
+
+Optional secrets:
+- `PRODUCTION_URL` - Production URL for production tests
+- `SLACK_WEBHOOK_URL` - For Slack notifications
+- `TESTRAIL_HOST`, `TESTRAIL_USERNAME`, `TESTRAIL_API_KEY` - For TestRail integration
+
+### Step 3: Generate package-lock.json
+
+```bash
+npm install
+git add package-lock.json
+git commit -m "Add package-lock.json for CI/CD"
+git push
+```
+
+### Step 4: Test CI/CD
+
+1. Push a change to the repository
+2. Go to **Actions** tab in GitHub
+3. Verify the workflow runs successfully
+
+---
+
 **Version**: 1.0.0
 **Last Updated**: 2026-04-20
+**Status**: CI/CD DISABLED - Enable in your fork
