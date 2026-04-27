@@ -24,6 +24,17 @@ Writes comprehensive test cases from Figma frames, screenshots, or feature descr
 
 **Example:** `/qa-tc-writer Write test cases for dashboard feature`
 
+### /qa-strategist
+Creates comprehensive Test Strategy documents from Figma frames, PNG screenshots, or feature descriptions.
+
+**Use when:**
+- Creating test strategy documents
+- Analyzing scope and test approach
+- Identifying risks and resource requirements
+- Planning test coverage and timelines
+
+**Example:** `/qa-strategist Create test strategy for new feature`
+
 ### /qa-orchestrator
 Coordinates between QA agents and manages complex workflows for comprehensive test coverage.
 

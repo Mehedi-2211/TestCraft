@@ -68,6 +68,42 @@ This framework includes **2 specialized AI skills** to accelerate your testing w
 - ✅ Mobile Test Cases — Responsiveness (375px, 667px, 768px)
 - ✅ TestRail import format — Ready to upload
 
+**How to use:**
+```bash
+# Generate test cases
+/qa-tc-writer Write test cases for dashboard feature
+
+# Import to TestRail
+/qa-tc-writer Generate and import test cases to TestRail
+```
+
+### /qa-strategist — Test Strategy Generator
+
+**Creates comprehensive test strategy documents** from:
+- 📊 Figma frames or screenshots
+- 📸 PNG designs
+- 📄 Feature descriptions
+- 📋 Requirements documents
+
+**What it generates:**
+- ✅ Test Scope — In-scope and out-of-scope features
+- ✅ Test Approach — Methodology, techniques, tools
+- ✅ Risk Analysis — High/medium/low risk areas with mitigation
+- ✅ Test Types Matrix — Which test types to use and why
+- ✅ Resource Requirements — Test data, environments, team skills
+- ✅ Schedule & Milestones — Timeline estimates and key dates
+- ✅ Entry/Exit Criteria — Clear success metrics
+- ✅ Deliverables — Documents and artifacts
+
+**How to use:**
+```bash
+# Create test strategy
+/qa-strategist Create test strategy for new feature
+
+# Plan testing approach
+/qa-strategist Analyze designs and create testing plan
+```
+
 **Test case format:**
 ```
 TEST CASE ID: LG-FUNC-001
@@ -102,7 +138,9 @@ Expected Results:
 |----------|----------------|
 | Create automated tests from designs | `/qa-script-writer` |
 | Write manual test cases | `/qa-tc-writer` |
-| Setup complete QA framework | Either — both work together |
+| Create test strategy document | `/qa-strategist` |
+| Analyze scope and test approach | `/qa-strategist` |
+| Setup complete QA framework | `/qa-orchestrator` |
 | Analyze screen for QA coverage | `/qa-tc-writer` |
 | Generate Playwright code | `/qa-script-writer` |
 | Import tests to TestRail | `/qa-tc-writer` |
@@ -744,6 +782,7 @@ tuliptech-qa-architecture/
 ### QA Skills
 - [QA Script Writer](.claude/qa-script-writer.md) - AI-powered automation code generator
 - [QA Test Case Writer](.claude/qa-tc-writer.md) - AI-powered test case generator
+- [QA Test Strategist](.claude/qa-strategist.md) - AI-powered test strategy document generator
 - [Skills Documentation](.claude/README.md) - All available QA skills
 
 ## 🎯 Target Metrics

@@ -21,11 +21,11 @@ The Orchestrator manages the complete QA workflow:
 ┌─────────────────────────────────────────┐
 │         TulipTech QA Orchestrator       │
 ├─────────────────────────────────────────┤
-│  ┌─────────────┐    ┌─────────────┐   │
-│  │qa-script-   │    │  qa-tc-     │   │
-│  │  writer     │    │  writer     │   │
-│  │   Agent     │    │   Agent     │   │
-│  └─────────────┘    └─────────────┘   │
+│  ┌──────────┐  ┌──────────┐  ┌────────┐│
+│  │qa-script │  │ qa-tc-   │  │qa-stra ││
+│  │ -writer  │  │ writer   │  | -tegist││
+│  │  Agent   │  │  Agent   │  │  Agent ││
+│  └──────────┘  └──────────┘  └────────┘│
 │                                         │
 │  Workflow Management                    │
 │  Quality Gates                          │
@@ -48,6 +48,12 @@ The Orchestrator manages the complete QA workflow:
 - **Input**: Figma frames, screenshots, feature descriptions
 - **Output**: Structured .txt test cases, TestRail import
 - **Use When**: Documenting test cases for manual testing or TestRail
+
+### **3. QA Test Strategist** (`qa-strategist`)
+- **Purpose**: Create comprehensive test strategy documents
+- **Input**: Figma frames, PNG screenshots, feature descriptions
+- **Output**: Complete test strategy (scope, risks, resources, schedule)
+- **Use When**: Planning test approach for new features or projects
 
 ---
 
@@ -134,31 +140,37 @@ Please update the existing test suite and automation scripts.
 **When**: Starting a new project or feature from scratch
 
 **Steps**:
-1. **Project Setup**
+1. **Test Strategy**
+   - Use `qa-strategist` agent
+   - Analyze designs and requirements
+   - Create comprehensive test strategy document
+   - Define scope, risks, and resource requirements
+
+2. **Project Setup**
    - Create directory structure
    - Set up configuration files
    - Initialize test framework
 
-2. **Manual Test Coverage**
+3. **Manual Test Coverage**
    - Use `qa-tc-writer` agent
    - Generate all test case types
    - Create TestRail structure
 
-3. **Automation Coverage**
+4. **Automation Coverage**
    - Use `qa-script-writer` agent
    - Implement smoke tests
    - Implement sanity tests
    - Implement functional tests
 
-4. **CI/CD Integration**
+5. **CI/CD Integration**
    - Create test pipelines
    - Set up reporting
    - Configure notifications
 
-5. **Documentation**
+6. **Documentation**
    - Create onboarding guide
-   - Document test strategy
    - Create runbooks
+   - Document lessons learned
 
 **Example Prompt**:
 ```
@@ -247,6 +259,10 @@ Mobile Viewports Tested / Required Viewports * 100
 ```
 START
   │
+  ├─ Is test strategy required?
+  │   ├─ Yes → Use qa-strategist
+  │   └─ No → Continue
+  │
   ├─ Is automation required?
   │   ├─ Yes → Use qa-script-writer
   │   └─ No → Continue
@@ -277,10 +293,13 @@ START
 ### **Scenario 3: "I need test cases for TestRail"**
 **Response**: Use qa-tc-writer
 
-### **Scenario 4: "Setup complete QA framework for new project"**
+### **Scenario 4: "Create test strategy for new feature"**
+**Response**: Use qa-strategist
+
+### **Scenario 5: "Setup complete QA framework for new project"**
 **Response**: Use Orchestrator (Template 3)
 
-### **Scenario 5: "Update tests after UI changes"**
+### **Scenario 6: "Update tests after UI changes"**
 **Response**: Use Orchestrator (Template 2)
 
 ---
