@@ -35,6 +35,17 @@ Creates comprehensive Test Strategy documents from Figma frames, PNG screenshots
 
 **Example:** `/qa-strategist Create test strategy for new feature`
 
+### /qa-pipeline
+Automated end-to-end QA pipeline that chains all skills together: Test Strategy → Test Cases → Automation Code.
+
+**Use when:**
+- Running complete automated QA pipeline from designs
+- Generating all QA artifacts in one execution
+- Setting up testing for new features/projects
+- Automating everything from Figma/screenshots
+
+**Example:** `/qa-pipeline Run complete pipeline from designs/checkout/`
+
 ### /qa-orchestrator
 Coordinates between QA agents and manages complex workflows for comprehensive test coverage.
 
