@@ -23,7 +23,7 @@ This is a reference/sample/default QA architecture that provides:
 
 ## 🤖 AI-Powered QA Skills
 
-This framework includes **2 specialized AI skills** to accelerate your testing workflow:
+This framework includes **4 specialized AI skills** to accelerate your testing workflow:
 
 ### /qa-script-writer — Automation Code Generator
 
@@ -123,7 +123,55 @@ Expected Results:
     - Should display a success message
 ```
 
+### /qa-pipeline — Automated QA Pipeline
+
+**Runs complete end-to-end QA pipeline** from:
+- 📸 Figma URLs or local design folders
+- 📁 ZIP archives with screenshots
+- 🎯 Individual PNG/JPG files
+
+**What it automates (in sequence):**
+- ✅ **Step 1: Input Analysis** - Validates and organizes inputs
+- ✅ **Step 2: Test Strategy** - Generates TEST_STRATEGY.md
+- ✅ **Step 3: Test Cases** - Generates TEST_CASES.txt
+- ✅ **Step 4: Automation** - Generates 4-tier code (Locators, Pages, Data, Tests)
+- ✅ **Step 5: Organization** - Creates project folder structure
+- ✅ **Step 6: Reporting** - Generates execution summary
+
+**Output Structure:**
+```
+projects/[project-name]/
+├── TEST_STRATEGY.md          ← Complete test strategy
+├── TEST_CASES.txt           ← All test cases (UI, Functional, Mobile)
+├── automation/              ← Complete 4-tier code
+│   ├── src/locators/      ← Tier 1
+│   ├── src/pages/          ← Tier 2
+│   ├── src/datas/         ← Tier 3
+│   └── tests/             ← Tier 4 (8 test types)
+└── REPORT.md                ← Execution summary
+```
+
 **How to use:**
+```bash
+# Run complete pipeline
+/qa-pipeline Run complete pipeline from designs/checkout/
+
+# From Figma
+/qa-pipeline Run pipeline from Figma URL: https://figma.com/file/xyz
+
+# From local folder
+/qa-pipeline Run pipeline from /path/to/designs/ for project ecommerce feature checkout
+```
+
+**What makes it special:**
+- 🚀 One command generates everything
+- 📊 Real-time progress tracking
+- 🎯 Quality gates at each step
+- 📁 Automatic project organization
+- ⚡ Zero manual effort needed
+- 🔧 Handles multiple projects seamlessly
+
+**How to use:****
 ```bash
 # Generate test cases
 /qa-tc-writer Write test cases for dashboard feature
@@ -140,6 +188,7 @@ Expected Results:
 | Write manual test cases | `/qa-tc-writer` |
 | Create test strategy document | `/qa-strategist` |
 | Analyze scope and test approach | `/qa-strategist` |
+| Run complete automated pipeline from designs | `/qa-pipeline` |
 | Setup complete QA framework | `/qa-orchestrator` |
 | Analyze screen for QA coverage | `/qa-tc-writer` |
 | Generate Playwright code | `/qa-script-writer` |
@@ -783,6 +832,7 @@ tuliptech-qa-architecture/
 - [QA Script Writer](.claude/qa-script-writer.md) - AI-powered automation code generator
 - [QA Test Case Writer](.claude/qa-tc-writer.md) - AI-powered test case generator
 - [QA Test Strategist](.claude/qa-strategist.md) - AI-powered test strategy document generator
+- [QA Pipeline Orchestrator](.claude/qa-pipeline.md) - AI-powered end-to-end QA pipeline
 - [Skills Documentation](.claude/README.md) - All available QA skills
 
 ## 🎯 Target Metrics
