@@ -48,3 +48,14 @@ logs/
 screenshots/
 videos/
 traces/
+
+# Design Files (keep structure, ignore large PNGs)
+designs/**/*.png
+designs/**/*.jpg
+designs/**/*.jpeg
+designs/**/*.fig
+designs/**/*.svg
+!designs/MANIFEST.json
+!designs/.gitkeep
+!designs/README.md
+!designs/*/.gitkeep
